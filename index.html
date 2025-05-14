@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Iyonicorp Help Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-sky-100 to-indigo-200 min-h-screen text-gray-800">
+
+  <!-- Header -->
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-md">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div>
+      <h1 class="text-2xl font-extrabold text-indigo-700 tracking-tight">
+        Iyonicorp <span class="text-gray-700 text-base font-normal">Support</span>
+      </h1>
+    </div>
+    <nav class="space-x-6">
+      <a href="#ticket" class="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 shadow transition">
+        Submit Ticket
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section 
+  class="relative min-h-[70vh] md:h-[80vh] flex items-center justify-center text-center text-white px-4 sm:px-6"
+  style="background-image: url('pexels-mikhail-nilov-7682204.jpg'); background-size: cover; background-position: center;"
+>
+  <!-- Background overlay -->
+
+  <!-- Animated Typing Content -->
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-blue-700 mb-4">
+      <span id="typewriter"></span><span class="border-r-2 border-blue-200 animate-pulse ml-1"></span>
+    </h2>
+  </div>
+</section>
+
+<!-- Typing Animation Script -->
+<script>
+  const words = [
+    "Iyonicorp Help Center",
+    "Your Tech Support Partner",
+    "Submit Tickets. Get Solutions.",
+    "Here When You Need Us 🥰"
+  ];
+
+  let currentWordIndex = 0;
+  let currentCharIndex = 0;
+  let isDeleting = false;
+  const typeSpeed = 90;
+  const deleteSpeed = 60;
+  const pauseTime = 1500;
+
+  const typewriterElement = document.getElementById("typewriter");
+
+  function typeEffect() {
+    const currentWord = words[currentWordIndex];
+    const currentText = currentWord.substring(0, currentCharIndex);
+
+    typewriterElement.textContent = currentText;
+
+    if (!isDeleting) {
+      if (currentCharIndex < currentWord.length) {
+        currentCharIndex++;
+        setTimeout(typeEffect, typeSpeed);
+      } else {
+        isDeleting = true;
+        setTimeout(typeEffect, pauseTime);
+      }
+    } else {
+      if (currentCharIndex > 0) {
+        currentCharIndex--;
+        setTimeout(typeEffect, deleteSpeed);
+      } else {
+        isDeleting = false;
+        currentWordIndex = (currentWordIndex + 1) % words.length;
+        setTimeout(typeEffect, 300);
+      }
+    }
+  }
+
+  typeEffect();
+</script>
+
+
+
+
+
+<!-- Services Section -->
+<section id="services" class="bg-white py-16 px-6">
+  <div class="max-w-6xl mx-auto text-center">
+    <h3 class="text-3xl font-bold text-indigo-700 mb-12">Our Support Covers</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+      
+      <div class="bg-indigo-50 p-6 rounded-lg shadow-sm">
+        <h4 class="text-xl font-semibold text-indigo-800 mb-2">IyonicPay</h4>
+        <p>Payment processing, invoice issues, transaction delays, fraud checks, and refund help.</p>
+      </div>
+
+      <div class="bg-indigo-50 p-6 rounded-lg shadow-sm">
+        <h4 class="text-xl font-semibold text-indigo-800 mb-2">IyonicBots</h4>
+        <p>AI bot integration, automation scripting, and live chat troubleshooting for intelligent systems.</p>
+      </div>
+
+      <div class="bg-indigo-50 p-6 rounded-lg shadow-sm">
+        <h4 class="text-xl font-semibold text-indigo-800 mb-2">IyonicMarketing</h4>
+        <p>Ad campaign optimization, analytics tracking, SEO and influencer collaborations assistance.</p>
+      </div>
+
+
+
+      <div class="bg-indigo-50 p-6 rounded-lg shadow-sm">
+        <h4 class="text-xl font-semibold text-indigo-800 mb-2">IyonicWeb</h4>
+        <p>Website deployment, hosting, custom domain support, and web plugin configuration.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Ticket Form Section -->
+  <section id="ticket" class="py-20 px-6 flex items-center justify-center">
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+      <h2 class="text-2xl font-bold text-center text-indigo-700 mb-6">Lets talk!! Submit a Ticket</h2>
+      <form id="ticketForm" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Name</label>
+          <input type="text" name="name" required class="w-full px-3 py-2 border rounded-md" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" name="email" required class="w-full px-3 py-2 border rounded-md" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Select Service</label>
+          <select name="service" required class="w-full px-3 py-2 border rounded-md">
+            <option value="">-- Choose a service --</option>
+            <option value="Iyonicorp">Iyonicorp</option>
+            <option value="Iyonicpay">Iyonicpay</option>
+            <option value="Iyonicbots">Iyonicbots</option>
+            <option value="iyoincmarketing">iyoincmarketing</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Describe your issue</label>
+          <textarea name="issue" required class="w-full px-3 py-2 border rounded-md"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition">Submit</button>
+      </form>
+    </div>
+  </section>
+
+<!-- Footer -->
+<footer class="bg-indigo-900 text-white text-sm pt-12 pb-8 mt-20">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-between items-start gap-12">
+    
+    <!-- About Iyonicorp -->
+    <div class="flex-1 lg:pr-16">
+      <h4 class="text-lg font-semibold mb-3">About Iyonicorp</h4>
+      <p class="text-gray-300 leading-relaxed">
+        Iyonicorp empowers businesses with intelligent automation, secure payment systems, and advanced marketing platforms. Our mission is to simplify success through powerful digital infrastructure.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="flex-1 lg:pl-16">
+      <h4 class="text-lg font-semibold mb-3">Quick Links</h4>
+      <ul class="space-y-2">
+        <li><a href="#services" class="hover:underline text-gray-300">Our Services</a></li>
+        <li><a href="#ticket" class="hover:underline text-gray-300">Submit a Ticket</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="mt-10 border-t border-indigo-700 pt-4 text-center text-gray-400">
+    &copy; 2025 Iyonicorp. All rights reserved.
+  </div>
+</footer>
+
+
+  <!-- Submit Handling Script -->
+  <script>
+    const API_URL = 'http://localhost:3000/api/tickets';
+    const form = document.getElementById('ticketForm');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    form.onsubmit = async function (e) {
+      e.preventDefault();
+      submitButton.disabled = true;
+      submitButton.textContent = "Submitting...";
+
+      try {
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        if (result.message) {
+          const query = new URLSearchParams(data).toString();
+          window.location.href = `./dashboard?${query}`;
+        } else {
+          throw new Error("Unexpected response");
+        }
+      } catch (err) {
+        alert('Error submitting ticket. Please try again.');
+        submitButton.disabled = false;
+        submitButton.textContent = "Submit";
+      }
+    };
+  </script>
+
+</body>
+</html>
