@@ -216,7 +216,7 @@ if (isNewTicket) {
       chatWindow.scrollTop = chatWindow.scrollHeight;
     });
 
-    const userSocket = io('http://localhost:3000', {
+    const userSocket = io('https://letshelpyou.onrender.com', {
       reconnection: true,
       reconnectionAttempts: Infinity,
       reconnectionDelay: 1000,
